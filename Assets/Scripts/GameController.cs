@@ -7,11 +7,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(GameUI))]
 public class GameController : MonoBehaviour
 {
+	public static GameController Instance { get; private set; }
+	public GameUI gameUI { get; private set; }
+
 	[SerializeField]
 	private ChanceTuner appleChance;
-
-	public static GameController Instance { get; private set; }
-
 	private int knifeCount;
 
 	[Header("Knife Settings")]
@@ -25,8 +25,6 @@ public class GameController : MonoBehaviour
 	private float force;
 	private bool throwed;
 	private GameObject knife;
-
-	public GameUI gameUI { get; private set; }
 
 	private void Awake()
 	{
@@ -64,13 +62,9 @@ public class GameController : MonoBehaviour
 	public static bool SpawnApple()
 	{
 		if (Random.Range(0.0f, 1.0f) < Instance.appleChance.GetChance())
-		{
 			return true;
-		}
 		else
-		{
 			return false;
-		}
 	}
 
 	public void StartGameOverSequence(bool win)

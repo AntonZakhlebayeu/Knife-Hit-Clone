@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class ShopCell : MonoBehaviour
 {
+	public static ShopCell Instance { get; private set; }
+
 	[SerializeField] public GameObject _iconField;
-    [SerializeField] public Sprite _locked;
+	[SerializeField] public Sprite _locked;
 	[SerializeField] public int cellIndex;
-
-	public static ShopCell Instance{ get; private set; }
-
 
 	private void Awake()
 	{
@@ -19,14 +18,14 @@ public class ShopCell : MonoBehaviour
 
 	public void Render(IShopItem shopItem, int index)
 	{
-		if (shopItem.IsReceived) 
-        {
+		if (shopItem.IsReceived)
+		{
 			_iconField.GetComponent<Image>().sprite = shopItem.knifeTexture;
-        }
-        else
-        {
-            _iconField.GetComponent<Image>().sprite = _locked;
-        }
+		}
+		else
+		{
+			_iconField.GetComponent<Image>().sprite = _locked;
+		}
 		cellIndex = index;
 	}
 

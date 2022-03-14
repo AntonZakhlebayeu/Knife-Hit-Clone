@@ -5,6 +5,7 @@ using System;
 
 public static class DataManager
 {
+	
 	public static void SetHighScore(int score)
 	{
 		if (score > ReturnHighScore())

@@ -25,11 +25,9 @@ public class Wood : MonoBehaviour
 
 	[SerializeField]
 	private GameObject[] woodParticles;
+	private int rotationPatternIndex = 0;
 
 	public static GameObject spawnedWood;
-
-
-	private int rotationPatternIndex = 0;
 
 	private void Awake()
 	{
